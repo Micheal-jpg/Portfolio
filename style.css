@@ -85,6 +85,10 @@ nav ul li a:hover::after{
     font-size: 25px;
 }
 
+.btn.btn.btn3{
+    margin-top: 20px;
+}
+
 /* about */
  
 #about{
