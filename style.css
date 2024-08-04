@@ -411,6 +411,7 @@ nav .fa-solid{
 
 @media only screen and (max-width: 600px){
     #header{
+        height: auto;
         background-image: url(img/pexels-sora-shimazaki-5926387.jpg);
     }
     .header-text{
