@@ -146,7 +146,7 @@ nav ul li a:hover::after{
 
 .tab-links{
     margin-right: 50px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     cursor: pointer;
     position: relative;
@@ -174,7 +174,7 @@ nav ul li a:hover::after{
 
 .tab-contents ul li span{
     color: #00A86B;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .tab-contents{
@@ -202,7 +202,7 @@ nav ul li a:hover::after{
 .services-list div{
     background: #262626;
     padding: 40px;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 300;
     border-radius: 10px;
     transition: background 0.5s, transform 0.5s;
@@ -222,10 +222,18 @@ nav ul li a:hover::after{
 .services-list div a{
     text-decoration: none;
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 20px;
     display: inline-block;
+    background-color: #00A86B; /* Same green as the name */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    border-radius: 5px;
 }
+
 
 .services-list div:hover{
     background: #00A86B;
@@ -273,7 +281,7 @@ nav ul li a:hover::after{
     flex-direction: column;
     padding: 0 40px;
     text-align: center;
-    font-size: 14px;
+    font-size: 19px;
     transition: height 0.5s;
 }
 
@@ -321,6 +329,11 @@ nav ul li a:hover::after{
 }
 
 /*----------- contact ----------*/
+
+.sub-title2.sub-title3{
+    color: #333;
+    margin-top: -20px;
+}
 
 .contact-left{
     flex-basis: 35%;
