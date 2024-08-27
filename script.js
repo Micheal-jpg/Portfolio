@@ -1,31 +1,79 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+document.addEventListener("DOMContentLoaded", function() {
+    const typedText = document.getElementById("typed-text");
+    const text = "Micheal";
+    let index = 0;
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+    function type() {
+        if (index < text.length) {
+            typedText.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 100); // Adjust typing speed here
+        } else {
+            typedText.classList.add('done'); // Add the 'done' class after typing is complete
+        }
+    }
+
+    typedText.textContent = ''; // Clear the text content initially
+    type();
 });
 
+
+var tablinks = document.getElementsByClassName("tab-links");
+var tabcontents = document.getElementsByClassName("tab-contents");
+
+function opentab(tabname){
+   for(tablink of tablinks){
+       tablink.classList.remove("active-link");
+   }
+   for(tabcontent of tabcontents){
+       tabcontent.classList.remove("active-tab");
+   }
+   event.currentTarget.classList.add("active-link");
+   document.getElementById(tabname).classList.add("active-tab")
+}
+
+/*  Responsive font  */
+var sidemenu = document.getElementById("sidemenu");
+
 function openmenu(){
-    sidemenu.classList.remove("close-menu");
-    sidemenu.classList.add("open-menu");
+    sidemenu.style.right = "0";
 }
-
 function closemenu(){
-    sidemenu.classList.remove("open-menu");
-    sidemenu.classList.add("close-menu");
+    sidemenu.style.right = "-200px";
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedText = document.getElementById('animated-text');
 
-    // Reset the width to 0 to start the animation
-    animatedText.style.width = '0';
+/*                contact                      */
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyEJAw6A8DMnFV7L8-27fJExp7UgUi_QdvHhZH6TDEEoKmzSq3PurDKHn2QK3WOMb-u/exec'
+const form = document.forms['submit-to-google-sheet']
+const msg = document.getElementById("msg")
 
-    // Trigger the animation
-    setTimeout(() => {
-        animatedText.style.animation = 'typing 3s steps(30, end) forwards, blink 0.5s step-end infinite';
-    }, 500); // Delay to ensure the page is fully loaded
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => {
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+            msg.innerHTML = ""
+        },5000)
+        form.reset()
+    })
+    .catch(error => console.error('Error!', error.message))
+})
+/*  alert("Welcome To My Portfolio")  */
+
+/* Back to top */
+window.onscroll = function() {
+    const backToTop = document.querySelector('.back-to-top');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+};
+
+
+/*    Social media    */
+document.querySelectorAll('.social-icons a').forEach(link => {
+    link.setAttribute('target', '_blank');
 });

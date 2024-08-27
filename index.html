@@ -24,10 +24,11 @@
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
-                <h1>Hi, I'm <span>Micheal</span><br>a Full Stack Developer</h1>
+                <h1>Hi, I'm <span id="typed-text">Micheal</span><br>a Full Stack Developer</h1>
                 <p>As a full stack developer, I build and maintain complete web<br> applications, combining front-end creativity with back-end efficiency<br> to deliver robust, user-friendly solutions.</p>
-                <a href="#" class="btn btn2 btn3">READ MORE  <i class="fa-solid fa-angle-right"></i></a>
+                <a href="#" class="btn btn2 btn3">READ MORE <i class="fa-solid fa-angle-right"></i></a>
             </div>
+            
         </div>
     </div>
 
@@ -164,61 +165,44 @@
             </div>
         </div>
     </div>
-    <div class="copyright">
-        <p>Copyright @ Micheal.<i class="fa-solid fa-heart"></i></p>
-    </div>
 </div>
 
+<!--           Footer            -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-row">
+            <div class="footer-column">
+                <h3>About Me</h3>
+                <p>I am a full stack developer with a passion for creating dynamic and responsive web applications.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#my-works">My Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Me</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Micheal. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
-    <script>
 
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
-
-        function opentab(tabname){
-           for(tablink of tablinks){
-               tablink.classList.remove("active-link");
-           }
-           for(tabcontent of tabcontents){
-               tabcontent.classList.remove("active-tab");
-           }
-           event.currentTarget.classList.add("active-link");
-           document.getElementById(tabname).classList.add("active-tab")
-        }
-
-    </script>
-
-    <script>
-
-        var sidemenu = document.getElementById("sidemenu");
-
-        function openmenu(){
-            sidemenu.style.right = "0";
-        }
-        function closemenu(){
-            sidemenu.style.right = "-200px";
-        }
-    </script>
-
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyEJAw6A8DMnFV7L8-27fJExp7UgUi_QdvHhZH6TDEEoKmzSq3PurDKHn2QK3WOMb-u/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Message sent successfully"
-            setTimeout(function(){
-                msg.innerHTML = ""
-            },5000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
-    })
-    /*  alert("Welcome To My Portfolio")  */
-  </script>
-  
+<a href="#" class="back-to-top" id="backToTopBtn"><i class="fa-solid fa-angles-up"></i></a>
+  <script src="script.js"></script>
 </body>
 </html> 
