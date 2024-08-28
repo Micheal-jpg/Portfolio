@@ -3,6 +3,7 @@
     padding: 0;
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 html{
@@ -12,6 +13,13 @@ html{
 body{
     background:  #e0f2e9;
     color: white;
+    overflow-x: hidden;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 #header{
@@ -22,6 +30,7 @@ body{
     background-position: center;
 }
 .container{
+    
     padding: 10px 10%;
 }
 
@@ -87,6 +96,10 @@ nav ul li a:hover::after{
     font-size: 25px;
 }
 
+.header-text h1 {
+    position: relative;
+}
+
 /* Typing Animation */
 @keyframes typing {
     from { width: 0; }
@@ -99,9 +112,6 @@ nav ul li a:hover::after{
     50% { border-color: transparent; }
 }
 
-.header-text h1 {
-    position: relative;
-}
 
 #typed-text {
     display: inline-block;
@@ -110,8 +120,7 @@ nav ul li a:hover::after{
     white-space: nowrap;
     overflow: hidden;
     vertical-align: middle; /* Align the text properly */
-    animation: typing 2s steps(30, end);
-    animation-fill-mode: forwards; /* Ensures the animation stays in the final state */
+    animation: typing 8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards; /* Adjusted duration and timing function */
     position: absolute; /* Positioning the animated text absolutely */
     left: 195px; /* Adjust to align with "Hi, I'm" */
     top: 0;
@@ -456,13 +465,14 @@ form btn2{
     position: fixed;
     bottom: 20px;
     right: 20px;
-    display: none;
     background-color: #00A86B;
     color: white;
     padding: 10px;
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
+    z-index: 100; /* Ensure it is on top of other elements */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add a slight shadow for better visibility */
 }
 
 .back-to-top:hover {
@@ -592,28 +602,28 @@ nav .fa-solid{
     display: none;
 }
 
-@media only screen and (max-width: 600px){
-    #header{
+@media only screen and (max-width: 600px) {
+    #header {
         height: auto;
         background-image: url(img/pexels-sora-shimazaki-5926387.jpg);
+        background-size: cover; /* Ensure the background image scales properly */
     }
-    .header-text{
+    .header-text {
         margin-top: 40%;
+        padding: 0 10px; /* Add some padding to avoid text touching the edges */
         font-size: 16px;
     }
-    .header-text h1{
-        font-size: 25px;
+    .header-text h1 {
+        font-size: 22px; /* Slightly reduce the font size for a better fit */
     }
-
-    .header-text p{
+    .header-text p {
         font-size: 15px;
     }
-
-    nav .fa-solid{
+    nav .fa-solid {
         display: block;
         font-size: 25px;
     }
-    nav ul{
+    nav ul {
         background: #00A86B;
         position: fixed;
         top: 0;
@@ -624,53 +634,68 @@ nav .fa-solid{
         z-index: 2;
         transition: right 0.5s;
     }
-    nav ul li{
+    nav ul li {
         display: block;
         margin: 25px;
     }
-
-    
-    
-    nav ul .fa-solid{
+    nav ul .fa-solid {
         position: absolute;
         top: 25px;
         left: 25px;
         cursor: pointer;
     }
-    .sub-title{
+    .sub-title {
         font-size: 25px;
     }
-
-    .sub2{
+    .sub2 {
         font-size: 15px;
     }
-
-    .about-col-1, .about-col-2{
+    .about-col-1, .about-col-2 {
         flex-basis: 100%;
     }
-    .about-col-1{
+    .about-col-1 {
         margin-bottom: 30px;
     }
-    .about-col-2{
+    .about-col-2 {
         font-size: 14px;
     }
-    .tab-links{
+    .tab-links {
         font-size: 16px;
         margin-right: 20px;
     }
-
-    .sub-title2{
+    .sub-title2 {
         font-size: 25px;
         color: #333;
     }
-
-    .contact-left, .contact-right{
+    .contact-left, .contact-right {
         flex-basis: 100%;
     }
-    .copyright{
+    .copyright {
         font-size: 14px;
     }
+    .back-to-top {
+        bottom: 10px; /* Lower position */
+        right: 10px; /* Closer to the right edge */
+        padding: 10px;
+        font-size: 20px; /* Smaller size */
+        z-index: 999; /* Ensure it stays on top */
+    }
+    .container {
+        padding: 0 15px; /* Add padding to avoid elements touching the screen edges */
+    }
+    .section-title {
+        font-size: 18px;
+        text-align: center; /* Center align titles for a cleaner look */
+    }
+    .my-work-card {
+        margin: 0 auto 20px; /* Center work cards and add spacing */
+    }
+    .my-work-card img {
+        max-width: 100%; /* Ensure images do not overflow their containers */
+        height: auto;
+    }
 }
+
 
 #msg{
     color: #61b752;
